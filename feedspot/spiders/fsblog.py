@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
+from scrapy.loader import ItemLoader
+from ..items import FeedspotItem
+
 # This is for cooking blog search
 # directory = 'output/'
 
@@ -19,7 +22,9 @@ class FsblogSpider(scrapy.Spider):
             location = node.css('span.location::text').extract_first()
             urls = node.css('a.ext::attr(href)').extract_first()
 
-            yield {
-                "locations": location,
-                "urls": urls,
-            }
+            loader = ItemLoader(item=FeedspotItem())
+
+            loader.add_value('location', location)
+            loader.add_value('urls', urls)
+
+            yield (loader.load_item())

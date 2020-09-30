@@ -64,9 +64,9 @@ EXTENSIONS = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'feedspot.pipelines.FeedspotPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'feedspot.pipelinesCSV.PipelineCSV': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -88,3 +88,6 @@ EXTENSIONS = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+ID_COLUMN = 'urls'
+CSV_FILENAME = 'feedSpotResults.csv'

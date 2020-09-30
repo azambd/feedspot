@@ -10,6 +10,6 @@ import scrapy
 
 class FeedspotItem(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
-    # urls = scrapy.Field()
+    location = scrapy.Field()
+    urls = scrapy.Field()
     pass
